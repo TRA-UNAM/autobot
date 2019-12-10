@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<robot name="autobot">
+
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.08"/>
+      <geometry>
+        <box size="0.29 0.215 0.16"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="steer_front_l_link">
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.005"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="steer_front_l_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="steer_front_l_link"/>
+    <origin xyz="0.14 0.135 0" rpy="0 0 0"/>
+    <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="steer_front_r_link">
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.005"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="steer_front_r_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="steer_front_r_link"/>
+    <origin xyz="0.14 -0.135 0" rpy="0 0 0"/>
+    <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+<!--
+  <link name="drive_front_l_link">
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.005" length="0.005"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="drive_front_l_joint" type="revolute">
+    <parent link="steer_front_l_link"/>
+    <child link="drive_front_l_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <limit lower="-3.1416" upper="3.1416" effort="0.1" velocity="0.005"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="front_l_wheel_link">
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.065" length="0.055"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="front_r_wheel_link">
+    <visual>
+      <origin rpy="1.5708 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.065" length="0.055"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="drive_front_l_wheel_joint" type="fixed">
+    <parent link="drive_front_l_link"/>
+    <child link="front_l_wheel_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_l_r_wheel_joint" type="fixed">
+    <parent link="front_l_wheel_link"/>
+    <child link="front_r_wheel_link"/>
+    <origin xyz="0 -0.215 0" rpy="0 0 0"/>
+  </joint>
+-->
+</robot>
